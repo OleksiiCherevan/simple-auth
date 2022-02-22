@@ -30,7 +30,7 @@ const Login = () => {
                 navigate("/profile");
             })
             .catch((e) => {
-              alert('Bad password')
+              alert('Имя пользователя или пароль введены неверно')
             });
     };
 
