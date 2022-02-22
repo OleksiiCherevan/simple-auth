@@ -14,6 +14,7 @@ const Profile = () => {
   
     return isAuth ? (
         <div>
+            {}
             <div>email: {email}</div>
             <div>token: {token}</div>
             <div>id: {id} </div>

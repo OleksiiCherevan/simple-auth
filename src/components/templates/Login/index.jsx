@@ -16,8 +16,10 @@ const Login = () => {
         const auth = getAuth();
         console.log(auth, email, pass);
         signInWithEmailAndPassword(auth, email, pass)
-            .then(({ user }) => {
-                dispatch(
+            .then((data) => {
+              const { user } = data  
+              console.log(data);
+              dispatch(
                     setUser({
                         email: user.email,
                         token: user.accessToken,
@@ -27,7 +29,9 @@ const Login = () => {
 
                 navigate("/profile");
             })
-            .catch(console.error);
+            .catch((e) => {
+              alert('Bad password')
+            });
     };
 
     return (

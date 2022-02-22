@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    email: localStorage.getItem('email'),
-    token: localStorage.getItem('token'),
-    id: localStorage.getItem('id'),
+    email: localStorage.getItem('email') !== 'null' ? localStorage.getItem('email') : null,
+    token: localStorage.getItem('token') !== 'null' ? localStorage.getItem('token') : null,
+    id: localStorage.getItem('id') !== 'null' ? localStorage.getItem('id') : null,
 }
 
 const SaveSatateToLocalStore = (email, token, id) => {
@@ -25,11 +25,14 @@ const userSlice = createSlice({
 
             SaveSatateToLocalStore(email, token, id)
         },
-        
+
         removeUser(state) {
             state.email = null;
             state.token = null;
             state.id = null;
+
+            
+            SaveSatateToLocalStore(null, null, null)
         }
     }
 })
